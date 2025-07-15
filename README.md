@@ -20,21 +20,5 @@ This tool is particularly useful for annotating protein domains on predicted pro
 - Python 3.x
 - [`pandas`](https://pandas.pydata.org/) library
 
-Install `pandas` using pip if it's not already installed:
+Install `pandas` using pip if it's not already installed.
 
-```bash
-pip install pandas```
-
-## 🚀 Usage
-
-```bash
-python hmmer2gff3.py -f <protein_fasta.fasta> -t <hmmscan.tblout> -o <output.gff3> [-b]```
-
----
-
-## 📦 Example
-
-Generate a GFF3 with **all domain hits**:
-
-```bash
-python hmmer2gff3.py -f Abo_protein_1B_fasta.fasta -t Abo_1B_protein.out -o all_domains.gff3```
