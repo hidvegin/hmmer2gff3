@@ -1,24 +1,80 @@
-# HMMER2GFF3
+# hmmer2gff3
 
-A Python script to convert [HMMER](http://hmmer.org/) `--tblout` output from `hmmscan` into a protein-level GFF3 file using information from a protein FASTA file.
-
-This tool is particularly useful for annotating protein domains on predicted protein-coding genes, based on domain hits identified by `hmmscan`.
-
----
-
-## 🔧 Features
-
-- Parses `hmmscan` `--tblout` output file
-- Extracts transcript and gene information from protein FASTA headers
-- Outputs GFF3 file with domain coordinates at the protein level
-- Optional filtering to include **only the best-scoring domain** per protein
+**hmmer2gff3** is a Python script that converts HMMER `hmmscan --tblout` output to protein-level GFF3 format.  
+It supports exporting all detected domains or only the best-scoring domain per protein.
 
 ---
 
-## 🐍 Requirements
+## 🚀 Usage
 
-- Python 3.x
-- [`pandas`](https://pandas.pydata.org/) library
+```bash
+python hmmer2gff3.py -f <protein_fasta> -t <hmmscan_tblout> -o <output_gff3> [-b]
+```
 
-Install `pandas` using pip if it's not already installed.
+### **Required arguments**
 
+- `-f`, `--fasta`  
+  Protein FASTA file containing transcript and gene information in the header.
+
+- `-t`, `--tblout`  
+  Output file from `hmmscan` generated with the `--tblout` option.
+
+- `-o`, `--output`  
+  Output GFF3 file name.
+
+### **Optional arguments**
+
+- `-b`, `--best-only`  
+  Only keep the best scoring domain per protein.
+
+---
+
+## 📄 Example
+
+Export **all domains**:
+```bash
+python hmmer2gff3.py -f Abo_protein_1B_fasta.fasta -t Abo_1B_protein.out -o all_domains.gff3
+```
+
+Export **only the best-scoring domain** per protein:
+```bash
+python hmmer2gff3.py -f Abo_protein_1B_fasta.fasta -t Abo_1B_protein.out -o best_domains.gff3 -b
+```
+
+---
+
+## 📝 Output
+
+The script generates a GFF3 file with protein domain annotations.  
+Each feature includes the domain name, ID, and parent transcript.
+
+---
+
+## 📦 Requirements
+
+- Python 3
+- pandas
+
+Install dependencies:
+```bash
+pip install pandas
+```
+
+---
+
+## ⚡ Notes
+
+- The script expects the FASTA headers to contain `OriTrascriptID` and `OriGeneID` fields.
+- The GFF3 output includes domain coordinates, scores, and parent transcript information.
+
+---
+
+## 👤 Author
+
+Norbert Hidvégi
+
+---
+
+If you have questions or encounter issues, please open an issue on the repository.
+
+---
