@@ -1,6 +1,6 @@
-# hmmer2gff3
+# hmmscan2gff3
 
-**hmmer2gff3** is a Python script that converts HMMER `hmmscan --tblout` output to protein-level GFF3 format.  
+**hmmscan2gff3** is a Python script that converts HMMER `hmmscan --tblout` output to protein-level GFF3 format.  
 It supports exporting all detected domains or only the best-scoring domain per protein.
 
 ---
@@ -8,7 +8,7 @@ It supports exporting all detected domains or only the best-scoring domain per p
 ## 🚀 Usage
 
 ```bash
-python hmmer2gff3.py -f <protein_fasta> -t <hmmscan_tblout> -o <output_gff3> [-b]
+python hmmscan2gff3.py -f <protein_fasta> -t <hmmscan_tblout> -o <output_gff3> [-b]
 ```
 
 ### **Required arguments**
@@ -33,12 +33,12 @@ python hmmer2gff3.py -f <protein_fasta> -t <hmmscan_tblout> -o <output_gff3> [-b
 
 Export **all domains**:
 ```bash
-python hmmer2gff3.py -f Abo_protein_1B_fasta.fasta -t Abo_1B_protein.out -o all_domains.gff3
+python hmmscan2gff3.py -f Abo_protein_1B_fasta.fasta -t Abo_1B_protein.out -o all_domains.gff3
 ```
 
 Export **only the best-scoring domain** per protein:
 ```bash
-python hmmer2gff3.py -f Abo_protein_1B_fasta.fasta -t Abo_1B_protein.out -o best_domains.gff3 -b
+python hmmscan2gff3.py -f Abo_protein_1B_fasta.fasta -t Abo_1B_protein.out -o best_domains.gff3 -b
 ```
 
 ---
